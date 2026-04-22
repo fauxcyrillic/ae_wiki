@@ -14,6 +14,7 @@
   * [cy110 &mu;Module](/modules/wonkystuff/cy110.md)
   * [env/4 &mu;Module](/modules/wonkystuff/env4.md)
   * [hh110 &mu;Module](/modules/wonkystuff/hh110.md)
+  * [k2](/modules/wonkystuff/k2)
   * [k&aelig;stle](/modules/wonkystuff/kaestle.md)
   * [k&aelig;stle drum](/modules/wonkystuff/kaestle_drum.md)
   * [k&aelig;stle arp](/modules/wonkystuff/kaestle_arp.md)

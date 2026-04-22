@@ -10,7 +10,7 @@
 * Module format: double-width, full height
 * Power consumption: 25mA
 
-This module is a clone of the original *Kastle* mini-modular drone/complex-oscillator synth from **[Bastl Instruments](https://bastl-instruments.com/)**.
+This module is a clone of the original *Kastle* mini-modular drone/complex-oscillator synth from **[Bastl Instruments](https://bastl-instruments.com/)** (See also [kaestle ARP](/modules/wonkystuff/kaestle_arp.md) and [kaestle drum](/modules/wonkystuff/kaestle_drum.md)).
 
 The module contains *six* different synthesis modes delivered in a classically lo-fi manner. Two outputs exist (*OSC OUT* and *Secondary* - top-right of the module), and these produce the following combinations when *MODE* is connected as shown:
 

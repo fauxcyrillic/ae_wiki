@@ -9,3 +9,9 @@ This wiki is made using [Docsify](https://docsify.js.org/). Please set up your s
 You can preview the site with:
 ```docsify serve docs```
 
+If you have Python installed, then you can run a local server by doing the following:
+
+```
+> cd <clone directory>/docs
+> python3 -m http.server 3000
+```
