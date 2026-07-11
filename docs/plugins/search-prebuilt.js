@@ -1,87 +1,91 @@
 'use strict';
 
 (function () {
-  var INDEXS = {};
-  var LOADING = false;
-  var LOADED = false;
+  var CACHE_KEY = 'docsify.search.v2';
+  var index = null;
+  var loading = false;
+
+  function clearOldCaches() {
+    try {
+      localStorage.removeItem('docsify.search.index');
+      localStorage.removeItem('docsify.search.prebuilt');
+      localStorage.removeItem('docsify.search.expires');
+    } catch (e) {}
+  }
 
   function loadIndex(callback) {
-    if (LOADED) return callback();
-    if (LOADING) return;
-    LOADING = true;
+    if (index) return callback();
+    if (loading) return;
+    loading = true;
 
-    var cached = localStorage.getItem('docsify.search.prebuilt');
+    clearOldCaches();
+
+    var cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
       try {
-        INDEXS = JSON.parse(cached);
-        LOADED = true;
-        LOADING = false;
-        return callback();
+        var parsed = JSON.parse(cached);
+        if (Array.isArray(parsed)) {
+          index = parsed;
+          loading = false;
+          return callback();
+        }
       } catch (e) { /* fall through to fetch */ }
     }
 
-    fetch('search-index.json')
+    fetch('search-index.json?v=' + Date.now())
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        INDEXS = data;
-        LOADED = true;
-        LOADING = false;
-        try { localStorage.setItem('docsify.search.prebuilt', JSON.stringify(data)); } catch (e) {}
+        index = data;
+        loading = false;
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch (e) {}
         callback();
       })
-      .catch(function () { LOADING = false; });
+      .catch(function () { loading = false; });
   }
 
-  function search(keywords) {
-    if (!keywords || !keywords.trim()) return [];
-    var terms = keywords.toLowerCase().split(/\s+/);
+  function search(query) {
+    if (!query || !query.trim()) return [];
+    var terms = query.toLowerCase().split(/\s+/);
     var results = [];
 
-    Object.keys(INDEXS).forEach(function (page) {
-      var sections = INDEXS[page];
-      Object.keys(sections).forEach(function (key) {
-        var section = sections[key];
-        var haystack = ((section.title || '') + ' ' + (section.body || '')).toLowerCase();
-        var matches = terms.every(function (t) { return haystack.indexOf(t) !== -1; });
-        if (matches) {
-          var bodyLower = (section.body || '').toLowerCase();
-          var firstTermIdx = bodyLower.indexOf(terms[0]);
-          var snippetStart = Math.max(0, firstTermIdx - 40);
-          var snippet = (section.body || '').substring(snippetStart, snippetStart + 120);
-          if (snippetStart > 0) snippet = '...' + snippet;
-          if (snippetStart + 120 < (section.body || '').length) snippet = snippet + '...';
-
-          results.push({
-            title: section.title,
-            slug: section.slug,
-            body: snippet,
-          });
+    for (var i = 0; i < index.length; i++) {
+      var page = index[i];
+      var haystack = (page.title + ' ' + page.body).toLowerCase();
+      var matches = true;
+      for (var t = 0; t < terms.length; t++) {
+        if (haystack.indexOf(terms[t]) === -1) {
+          matches = false;
+          break;
         }
-      });
-    });
-    return results;
-  }
-
-  function renderResults(results, panel) {
-    if (!results.length) {
-      panel.innerHTML = '<p class="empty">' + (window.$docsify.search.noData || 'No results') + '</p>';
-      return;
+      }
+      if (matches) {
+        results.push(page);
+      }
     }
-    var html = '';
-    results.forEach(function (r) {
-      html += '<div class="matching-post">'
-        + '<a href="' + r.slug + '">'
-        + '<h2>' + escapeHtml(r.title) + '</h2>'
-        + '<p>' + escapeHtml(r.body) + '</p>'
-        + '</a></div>';
-    });
-    panel.innerHTML = html;
+
+    return results;
   }
 
   function escapeHtml(s) {
     var div = document.createElement('div');
     div.textContent = s;
     return div.innerHTML;
+  }
+
+  function renderResults(results, panel) {
+    if (!results.length) {
+      var msg = (window.$docsify.search && window.$docsify.search.noData) || 'No results';
+      panel.innerHTML = '<p class="empty">' + msg + '</p>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < results.length; i++) {
+      html += '<div class="matching-post">'
+        + '<a href="' + results[i].url + '">'
+        + '<h2>' + escapeHtml(results[i].title) + '</h2>'
+        + '</a></div>';
+    }
+    panel.innerHTML = html;
   }
 
   function createSearchUI(hook) {
