@@ -15,3 +15,13 @@ If you have Python installed, then you can run a local server by doing the follo
 > cd <clone directory>/docs
 > python3 -m http.server 3000
 ```
+
+# Updating the search index
+
+The wiki uses a pre-built search index for full-text search. After adding, removing, or renaming pages, rebuild the index:
+
+```
+node build-search-index.js
+```
+
+This generates `docs/search-index.json` which should be committed along with your content changes.
