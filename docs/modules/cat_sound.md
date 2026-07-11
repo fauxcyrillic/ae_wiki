@@ -16,6 +16,7 @@ These modules emit audible sound signals, eg. from Oscillators, digital waveform
 * [SAMPLYR](/modules/tangiblewaves/samplyr.md)
 * [SAWVOX (disc.)](/modules/tangiblewaves/sawvox.md)
 * [SOLINA](/modules/tangiblewaves/solina.md)
+* [STRING ENSEMBLE](/modules/tangiblewaves/string-ensemble.md)
 * [TBD](/modules/tangiblewaves/tbd.md)
 * [µFM](/modules/tangiblewaves/u-fm.md)
 * [µOSC](/modules/tangiblewaves/u-osc.md)

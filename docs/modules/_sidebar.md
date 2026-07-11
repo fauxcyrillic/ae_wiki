@@ -97,6 +97,7 @@
 * [SLEW / EDGE](modules/tangiblewaves/slew-edge.md)
 * [SOLINA](modules/tangiblewaves/solina.md)
 * [SPRINGREVERB](modules/tangiblewaves/spring-reverb.md)
+* [STRING ENSEMBLE](modules/tangiblewaves/string-ensemble.md)
 * [STEP10 (disc.)](modules/tangiblewaves/step10.md)
 * [STOMP I/O](modules/tangiblewaves/stomp-io.md)
 * [SVFILTER (STATE VARIABLE)](modules/tangiblewaves/sv-filter.md)
