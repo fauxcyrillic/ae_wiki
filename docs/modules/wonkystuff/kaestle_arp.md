@@ -10,7 +10,7 @@
 * Module format: double-width, full height
 * Power consumption: 25mA
 
-This module is a clone of the last addition to the well-known *Kastle* series of mini-modular synths from **[Bastl Instruments](https://bastl-instruments.com/)**, the melodic-generator "ARP".
+This module is a clone of the last addition to the well-known *Kastle* series of mini-modular synths from **[Bastl Instruments](https://bastl-instruments.com/)**, the melodic-generator "ARP" (See also [kaestle](/modules/wonkystuff/kaestle.md) and [kaestle drum](/modules/wonkystuff/kaestle_drum.md)).
 
 As with all Kastle modules, pattern generation uses a 'rungler' algorithm which generates a pattern on the *PATTERN* output. This can be affected by input to the *FEED* input (see below).
 

@@ -10,7 +10,7 @@
 * Module format: double-width, full height
 * Power consumption: 25mA
 
-This module is a clone of the *Kastle Drum* mini-modular 'patchable groovebox' from **[Bastl Instruments](https://bastl-instruments.com/)**.
+This module is a clone of the *Kastle Drum* mini-modular 'patchable groovebox' from **[Bastl Instruments](https://bastl-instruments.com/)**  (See also [kaestle](/modules/wonkystuff/kaestle.md) and [kaestle ARP](/modules/wonkystuff/kaestle_arp.md)).
 
 The module creates percussive sounds (*DRUMS* output) based on a mix of short samples and synthesis — all in the typically *Kastle* lo-fi manner! A secondary *NOISES* output produces some secondary percussion sounds derived from the main voice. There are 8 sounds in total, selected by the *DRUM* control. Some of the sounds have subtle variations which will depend upon the precise position of the *DRUM* control!
 
