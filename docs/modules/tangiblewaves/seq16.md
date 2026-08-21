@@ -77,3 +77,6 @@ For the more experimental among you, using a [[logic.md | LOGIC]] module, or oth
 
 Here is a tutorial video made by The 5th Volt:
 %embed% https://youtu.be/xK-1NDD-RyQ %%
+
+You can use a [[https://wiki.aemodular.com/#/modules/tangiblewaves/grains | GRAINS]] module running the [[https://github.com/eclab/grains/tree/main/mode16 | Mode16]] to extend the SEQ16, giving it the ability to play backward, back-and-forth, in random order, or in fact in practically pattern you like.
+
