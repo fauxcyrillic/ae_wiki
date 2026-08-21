@@ -47,5 +47,9 @@ As with all AE modules, it can be "abused" - (AE does stand for Abused electroni
 
 https://forum.aemodular.com/thread/1595/triq164-module?page=1&scrollTo=13144
 
+You can use a [[https://wiki.aemodular.com/#/modules/tangiblewaves/grains | GRAINS]] module running the [[https://github.com/eclab/grains/tree/main/seq164 | Seq164]] firmware to extend the TRIQ164, giving it the ability to CV gate/pitch for notes in addition to just drum triggers.
+
 Here is a video by [[/artists/the5thvolt | The 5th Volt]] which explains how to use the TRIQ164:
 %embed% https://youtu.be/HrwxXI29Ack %%
+
+
