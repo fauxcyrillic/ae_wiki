@@ -58,6 +58,14 @@ RNS: Enables Running status for the outputs. MIDI running status skips sending r
 RST CTRL: Sends a "reset all controllers" message to all outputs immediately. Useful when certain module settings are unknown and have to be reset to their initial state. 
 NOTE OFF: Send an "all notes off" message to all outputs. Helpful when "note hangers" have ocurred.
 
+## Patch Suggestions
+
+One of IMDI HEART's most powerful features is routing: it can (for example) route External MIDI to IMDI Out while *simultaneously* routing IMDI In to the Per-Channel outputs.  This allows a few unusual and powerful applications of Grains/Arduino in combination with IMDI HEART.
+
+* You can use the IMDI HEART in combination with a [[https://wiki.aemodular.com/pmwiki.php/AeManual/GRAINS|GRAINS]] module or an Arduino Nano or Arduino Nano Every running the [[https://github.com/eclab/grains/tree/main/cascade | Cascade]] firmware to play back an entire MIDI file.  This will allow you to drive many IMDI devices at once to play a song entirely self-contained on your AE Modular synthesizer.  This takes advantage of the IMDI HEART's ability to receive MIDI not just from external MIDI but from an IMDI source.  Cascade is a MIDI file song player.
+
+* You can use the IMDI HEART in combination with a [[https://wiki.aemodular.com/pmwiki.php/AeManual/GRAINS|GRAINS]] module or an Arduino Nano or Arduino Nano Every running the [[[[https://github.com/eclab/grains/tree/main/v2/ensemble/ | Ensemble]] firmware to play MIDI notes on a channel polyphonically.  This takes advantage of the IMDI HEART's ability to route MIDI in several ways simultaneously. You will use the IMDI HEART to route external MIDI to IMDI (to Ensemble), and then route IMDI from Ensemble out to the 16 individual sockets.  Ensemble is a note distributor: it will do the work of breaking chords coming in from MIDI on one channel to individual notes on separate channels for each several oscillators to play. 
+
 <!--
 This video describes how to use the [[https://wiki.aemodular.com/pmwiki.php/AeManual/IMDI HEART|IMDI HEART]] module: 
 
