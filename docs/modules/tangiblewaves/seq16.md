@@ -75,5 +75,9 @@ If you are using an LFO to clock the SEQ16, it can be really interesting to feed
 
 For the more experimental among you, using a [[logic.md | LOGIC]] module, or other trigger manipulation into the reset input can be interesting. Doing the same in to the clock input can be excellent as long as it all stays in time with the rest of the music!
 
+You can use a [[https://wiki.aemodular.com/#/modules/tangiblewaves/grains | GRAINS]] module running the [[https://github.com/eclab/grains/tree/main/mode16 | Mode16]] firmware to extend the SEQ16, giving it the ability to play backward, back-and-forth, in random order, or in fact in practically pattern you like.
+
 Here is a tutorial video made by The 5th Volt:
 %embed% https://youtu.be/xK-1NDD-RyQ %%
+
+

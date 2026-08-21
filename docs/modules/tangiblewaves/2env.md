@@ -41,6 +41,8 @@ Envelopes are one of the basic modulation sources in subtractive synthesis. They
 
 The 2ENV can also trigger itself when the output ENDx is patched into the GTx.  This can make an envelope into a slow moving LFO (low frequency oscillator), or oscillator in audio range, with varied waveforms depending on the attack/decay settings. 
 
+You can use a [[https://wiki.aemodular.com/#/modules/tangiblewaves/grains | GRAINS]] module running the [[https://github.com/eclab/grains/tree/main/respite | Respite]] firmware to overcome a weakness in 2ENV when working with external MIDI gear.  Many grooveboxes and drum machines play their next note by sending a MIDI NOTE OFF of the previous note, followed *immediately* by a MIDI NOTE ON for the next note.  MIDI->CV converters such as the [[https://wiki.aemodular.com/#/modules/wonkystuff/mcc4 | Wonkystuff mcc4]] naturally translate this into dropping the gate, then very rapidly raising the gate again.  Unfortunately this is too fast for 2ENV, which will ignore the raised gate.  The Respite firmware slows the next gate enough for 2ENV to realize that it has happened.
+
 This video explains the usage of the AE Modular 2ENV module on a very basic level: 
 
 %embed% https://youtu.be/c3qsSg5ZfSk %%
